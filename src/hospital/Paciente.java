@@ -9,5 +9,126 @@ package hospital;
  * @author UCC20417
  */
 public class Paciente {
+    private String apellidos;
+    private String nombre;
+    private String fechaNaci;
+    private String tipodedoc;
+    private String docID;
+    private String celular;
+    private String correo;
+    private boolean alergia;
+    private String tipoAler;
+    private String detAlerg;
+    private String tipoSangre;
+
+    public Paciente() {}
+
+    public Paciente(String apellidos, String nombre, String fechaNaci, String tipodedoc, String docID, String celular, String correo, boolean alergia, String tipoAler, String detAlerg, String tipoSangre) {
+        this.apellidos = apellidos;
+        this.nombre = nombre;
+        this.fechaNaci = fechaNaci;
+        this.tipodedoc = tipodedoc;
+        this.docID = docID;
+        this.celular = celular;
+        this.correo = correo;
+        this.alergia = alergia;
+        this.tipoAler = tipoAler;
+        this.detAlerg = detAlerg;
+        this.tipoSangre = tipoSangre;
+    }
+    
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getFechaNaci() {
+        return fechaNaci;
+    }
+
+    public void setFechaNaci(String fechaNaci) {
+        this.fechaNaci = fechaNaci;
+    }
+
+    public String getTipodedoc() {
+        return tipodedoc;
+    }
+
+    public void setTipodedoc(String tipodedoc) {
+        this.tipodedoc = tipodedoc;
+    }
+
+    public String getDocID() {
+        return docID;
+    }
+
+    public void setDocID(String docID) {
+        this.docID = docID;
+    }
+
+    public String getCelular() {
+        return celular;
+    }
+
+    public void setCelular(String celular) {
+        this.celular = celular;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public boolean isAlergia() {
+        return alergia;
+    }
+
+    public void setAlergia(boolean alergia) {
+        this.alergia = alergia;
+    }
+
+    public String getTipoAler() {
+        return tipoAler;
+    }
+
+    public void setTipoAler(String tipoAler) {
+        this.tipoAler = tipoAler;
+    }
+
+    public String getDetAlerg() {
+        return detAlerg;
+    }
+
+    public void setDetAlerg(String detAlerg) {
+        this.detAlerg = detAlerg;
+    }
+
+    public String getTipoSangre() {
+        return tipoSangre;
+    }
+
+    public void setTipoSangre(String tipoSangre) {
+        this.tipoSangre = tipoSangre;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" + "apellidos=" + apellidos + ", nombre=" + nombre + ", fechaNaci=" + fechaNaci + ", tipodedoc=" + tipodedoc + ", docID=" + docID + ", celular=" + celular + ", correo=" + correo + ", alergia=" + alergia + ", tipoAler=" + tipoAler + ", detAlerg=" + detAlerg + ", tipoSangre=" + tipoSangre + '}';
+    }
     
 }

@@ -18,6 +18,7 @@ public class Hospital {
     public static void main(String[] args) {
         
         Scanner scan = new Scanner(System.in);
+        Paciente p = new Paciente();
         
     }
     
