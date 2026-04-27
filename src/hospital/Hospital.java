@@ -42,36 +42,19 @@ public class Hospital {
 
                         System.out.print("Ingrese sus apellidos: ");
                         p.setApellidos(scan.nextLine());
-                        while(true){
-                             try {
-                               System.out.print("Ingrese su nombre: ");
-                               p.setNombre(scan.nextLine());
-                               break;
-                            }catch(IllegalArgumentException e){
-                        System.out.println(e.getMessage());
-                        }
-                        }
+                        
+                        System.out.print("Ingrese su nombre: ");
+                        p.setNombre(scan.nextLine());
+
                         System.out.print("Ingrese su fecha de nacimiento (dd/mm/aaaa): ");
                         p.setFechaNaci(scan.nextLine());
-                        while(true){
-                            try{
-                            System.out.print("Ingrese su tipo de documento (CE o DNI): ");
-                            p.setTipodedoc(scan.nextLine());
-                            break;
-                                    
-                            }
-                            catch(IllegalArgumentException e){
-                                System.out.println(e.getMessage());
-                            }}
-                        while(true){
-                            try{
-                                System.out.print("Ingrese su numero de documento: ");
-                                p.setDocID(scan.nextLine());
-                                break;
-                            }catch(IllegalArgumentException e){
-                                System.out.println(e.getMessage());
-                                }
-                            }
+                       
+                        System.out.print("Ingrese su tipo de documento (CE o DNI): ");
+                        p.setTipodedoc(scan.nextLine());
+
+                        System.out.print("Ingrese su numero de documento: ");
+                        p.setDocID(scan.nextLine());
+                               
                         System.out.print("Ingrese su numero de celular: ");
                         p.setCelular(scan.nextLine());
                         System.out.print("Ingrese su correo: ");
@@ -98,9 +81,6 @@ public class Hospital {
                     case 2:
                         ctrl.mostrarpaciente();
                         break;
-                    case 3:
-                        
-                        break;
                     default:
                         System.out.println("Opcion no valida");
                         break;
@@ -108,6 +88,6 @@ public class Hospital {
             } while (op != 0); 
        }
 }
-    }
     
-}
+    
+
