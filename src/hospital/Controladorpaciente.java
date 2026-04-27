@@ -10,4 +10,6 @@ package hospital;
  */
 public class Controladorpaciente {
     
+    
+    
 }
