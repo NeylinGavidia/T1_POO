@@ -51,6 +51,9 @@ public class Paciente {
     }
 
     public void setNombre(String nombre) {
+        if (nombre.length() < 2){
+            throw new IllegalArgumentException ("No se permite ingresar iniciales");
+        }
         this.nombre = nombre;
     }
 
@@ -67,7 +70,14 @@ public class Paciente {
     }
 
     public void setTipodedoc(String tipodedoc) {
-        this.tipodedoc = tipodedoc;
+        //equalsIgnoreCase sirve como un ToLowerCase y ToUpperCase al mismo tiempo, por eso se uso este
+         if (tipodedoc.equalsIgnoreCase("DNI") || tipodedoc.equalsIgnoreCase("CE")) {
+
+            this.tipodedoc = tipodedoc.toUpperCase();
+
+        } else {
+            throw new IllegalArgumentException("Solo DNI o CE");
+         }
     }
 
     public String getDocID() {
