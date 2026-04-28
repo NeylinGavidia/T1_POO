@@ -71,6 +71,7 @@ public class Paciente {
 
     public void setTipodedoc(String tipodedoc) {
         //equalsIgnoreCase sirve como un ToLowerCase y ToUpperCase al mismo tiempo, por eso se uso este
+        //se practico en casa
          if (tipodedoc.equalsIgnoreCase("DNI") || tipodedoc.equalsIgnoreCase("CE")) {
 
             this.tipodedoc = tipodedoc.toUpperCase();
@@ -85,8 +86,22 @@ public class Paciente {
     }
 
     public void setDocID(String docID) {
-        
-        this.docID = docID;
+        if (tipodedoc.equalsIgnoreCase("DNI")){
+            if (docID.length() == 8){
+                this.docID = docID;
+            }
+            else{
+                throw new IllegalArgumentException("El DNI debe tener solo 8 digitos");
+            }
+        }
+        else if (tipodedoc.equalsIgnoreCase("CE")){
+            if (docID.length() == 9){
+                this.docID = docID;
+            }
+            else{
+             throw new IllegalArgumentException("El CE debe tener solo 9 digitos");
+            }
+        }
     }
 
     public String getCelular() {
