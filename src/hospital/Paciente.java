@@ -132,8 +132,14 @@ public class Paciente {
     }
 
     public void setTipoAler(String tipoAler) {
-        this.tipoAler = tipoAler;
-    }
+        if (!tipoAler.equalsIgnoreCase("Medicamentos") || !tipoAler.equalsIgnoreCase("Alimentos")||
+            !tipoAler.equalsIgnoreCase("Ambos")){
+            throw new IllegalArgumentException("Ingrese una opcion valida");
+        }
+        else{
+         this.tipoAler = tipoAler;
+        }
+    } 
 
     public String getDetAlerg() {
         return detAlerg;
