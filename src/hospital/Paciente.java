@@ -42,19 +42,25 @@ public class Paciente {
         return apellidos;
     }
 
-    public void setApellidos(String apellidos) {
+    public void setApellidos(String apellidos) { //validacion apellido para que no sean iniciales
+        if (validarApellidos(apellidos)) {
         this.apellidos = apellidos;
+        } else {
+        throw new IllegalArgumentException("No se permite ingresar iniciales");
+        }
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        if (nombre.length() < 2){
-            throw new IllegalArgumentException ("No se permite ingresar iniciales");
+    public void setNombre(String nombre) { //validacion nombre para que no sean iniciales
+        if (validarNombre(nombre)) 
+        {
+          this.nombre = nombre;
+        } else {
+        throw new IllegalArgumentException("No se permite ingresar iniciales");
         }
-        this.nombre = nombre;
     }
 
     public String getFechaNaci() {
@@ -69,7 +75,7 @@ public class Paciente {
         return tipodedoc;
     }
 
-    public void setTipodedoc(String tipodedoc) {
+    public void setTipodedoc(String tipodedoc) { //validacion tipo de doc
         //equalsIgnoreCase sirve como un ToLowerCase y ToUpperCase al mismo tiempo, por eso se uso este
         //se practico en casa
          if (tipodedoc.equalsIgnoreCase("DNI") || tipodedoc.equalsIgnoreCase("CE")) {
@@ -85,22 +91,11 @@ public class Paciente {
         return docID;
     }
 
-    public void setDocID(String docID) {
-        if (tipodedoc.equalsIgnoreCase("DNI")){
-            if (docID.length() == 8){
-                this.docID = docID;
-            }
-            else{
-                throw new IllegalArgumentException("El DNI debe tener solo 8 digitos");
-            }
-        }
-        else if (tipodedoc.equalsIgnoreCase("CE")){
-            if (docID.length() == 9){
-                this.docID = docID;
-            }
-            else{
-             throw new IllegalArgumentException("El CE debe tener solo 9 digitos");
-            }
+    public void setDocID(String docID) { //ahora ecien valida con bool
+        if (validarDocID(docID)) {
+        this.docID = docID;
+        } else {
+        throw new IllegalArgumentException("Documento inválido");
         }
     }
 
@@ -108,7 +103,7 @@ public class Paciente {
         return celular;
     }
 
-    public void setCelular(String celular) {
+    public void setCelular(String celular) { //
          if (celular.length() ==9) {
             this.celular = celular;
         } else {
@@ -121,7 +116,7 @@ public class Paciente {
         return correo;
     }
 
-    public void setCorreo(String correo) {
+    public void setCorreo(String correo) { //
         //aqui se usa el ! delante paa indicar lo contrario de la condicion
         //contains sugerido por netbeans e invesitgado en inernet
         if (!correo.contains("@") || !correo.contains(".com")){
@@ -132,7 +127,7 @@ public class Paciente {
         return alergia;
     }
 
-    public void setAlergia(boolean alergia) {
+    public void setAlergia(boolean alergia) { //estado de la alergia
         if (alergia == true){
             System.out.println("Tiene alergia");
         }
@@ -146,7 +141,7 @@ public class Paciente {
         return tipoAler;
     }
 
-    public void setTipoAler(String tipoAler) {
+    public void setTipoAler(String tipoAler) { //control de ecepciones y errores
         if (!tipoAler.equalsIgnoreCase("Medicamentos") || !tipoAler.equalsIgnoreCase("Alimentos")||
             !tipoAler.equalsIgnoreCase("Ambos")){
             throw new IllegalArgumentException("Ingrese una opcion valida");
@@ -177,4 +172,22 @@ public class Paciente {
         return "Paciente{" + "apellidos=" + apellidos + ", nombre=" + nombre + ", fechaNaci=" + fechaNaci + ", tipodedoc=" + tipodedoc + ", docID=" + docID + ", celular=" + celular + ", correo=" + correo + ", alergia=" + alergia + ", tipoAler=" + tipoAler + ", detAlerg=" + detAlerg + ", tipoSangre=" + tipoSangre + '}';
     }
     
+    public boolean validarDocID(String docID) {
+        if (tipodedoc.equalsIgnoreCase("DNI")) {
+            return docID.length() == 8;
+      } else if (tipodedoc.equalsIgnoreCase("CE")) {
+            return docID.length() == 9;
+    }
+    return false;}
+    
+    public boolean validarApellidos(String apellidos) 
+    {return apellidos != null && apellidos.length() >= 2;
+    }
+    
+    public boolean validarNombre(String nombre) 
+    {return nombre != null && nombre.length() >= 2;}
+    
+    public boolean validartipodoc(String docID) {
+    
+    return false;}
 }
