@@ -101,12 +101,12 @@ public class Paciente {
         return celular;
     }
 
-    public void setCelular(String celular) { //
-         if (celular.length() ==9) {
+    public void setCelular(String celular) { //validando celular
+        if (validarCelular(celular)) 
+        {
             this.celular = celular;
         } else {
-             System.out.println("Número incorrecto");
-            this.celular = "Error: Ingrese cantidad dígitos correctos";
+            throw new IllegalArgumentException("El celular debe tener 9 digitos");
         }
     }
 
@@ -114,11 +114,13 @@ public class Paciente {
         return correo;
     }
 
-    public void setCorreo(String correo) { //
-        //aqui se usa el ! delante paa indicar lo contrario de la condicion
-        //contains sugerido por netbeans e invesitgado en inernet
-        if (!correo.contains("@") || !correo.contains(".com")){
-            throw new IllegalArgumentException("No se ha ingresado un correo");
+    public void setCorreo(String correo) { //validando correo
+        
+        if (validarCorreo(correo)) 
+        {
+            this.correo = correo;
+        } else {
+            throw new IllegalArgumentException("Correo inválido");
         }
     }
     public boolean isAlergia() {
@@ -196,5 +198,15 @@ public class Paciente {
             return docID.length() == 9;
         }
     return false;
+    }
+    public boolean validarCelular (String celular) 
+    {
+        return celular.length() == 9;
+    }
+    public boolean validarCorreo(String correo) 
+    {
+        //aqui se usa el ! delante paa indicar lo contrario de la condicion
+        //contains sugerido por netbeans e invesitgado en inernet
+        return correo.contains("@")&& correo.contains(".com");
     }
 }
