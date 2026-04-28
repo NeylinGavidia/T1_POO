@@ -181,13 +181,17 @@ public class Paciente {
     return false;}
     
     public boolean validarApellidos(String apellidos) 
-    {return apellidos != null && apellidos.length() >= 2;
+    {
+        return apellidos.length() >= 2;
     }
     
     public boolean validarNombre(String nombre) 
-    {return nombre != null && nombre.length() >= 2;}
+    {
+        return nombre.length() >= 2;
+    }
     
-    public boolean validartipodoc(String docID) {
-    
-    return false;}
+    public boolean validartipoDoc(String tipodedoc) 
+    {
+    return (tipodedoc.equalsIgnoreCase("DNI") || tipodedoc.equalsIgnoreCase("CE"));
+    }
 }
