@@ -118,6 +118,12 @@ public class Paciente {
     }
 
     public void setAlergia(boolean alergia) {
+        if (alergia == true){
+            System.out.println("Tiene alergia");
+        }
+        else {
+            System.out.println("No tiene alegia");
+        }
         this.alergia = alergia;
     }
 
