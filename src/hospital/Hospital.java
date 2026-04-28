@@ -39,26 +39,65 @@ public class Hospital {
                         break;
                     case 1:
                         Paciente p = new Paciente();
-
+                        while(true){
+                             try {
                         System.out.print("Ingrese sus apellidos: ");
                         p.setApellidos(scan.nextLine());
-                        
-                        System.out.print("Ingrese su nombre: ");
-                        p.setNombre(scan.nextLine());
-
+                             break;
+                            }catch(IllegalArgumentException e){
+                        System.out.println(e.getMessage());
+                        }
+                        }
+                        while(true){
+                             try {
+                               System.out.print("Ingrese su nombre: ");
+                               p.setNombre(scan.nextLine());
+                               break;
+                            }catch(IllegalArgumentException e){
+                        System.out.println(e.getMessage());
+                        }
+                        }
                         System.out.print("Ingrese su fecha de nacimiento (dd/mm/aaaa): ");
                         p.setFechaNaci(scan.nextLine());
-                       
-                        System.out.print("Ingrese su tipo de documento (CE o DNI): ");
-                        p.setTipodedoc(scan.nextLine());
-
-                        System.out.print("Ingrese su numero de documento: ");
-                        p.setDocID(scan.nextLine());
-                               
-                        System.out.print("Ingrese su numero de celular: ");
-                        p.setCelular(scan.nextLine());
-                        System.out.print("Ingrese su correo: ");
-                        p.setCorreo(scan.nextLine());
+                        while(true){
+                            try{
+                            System.out.print("Ingrese su tipo de documento (CE o DNI): ");
+                            p.setTipodedoc(scan.nextLine());
+                            break;      
+                            }
+                            catch(IllegalArgumentException e){
+                                System.out.println(e.getMessage());
+                            }}
+                        while(true){
+                            try{
+                                System.out.print("Ingrese su numero de documento: ");
+                                p.setDocID(scan.nextLine());
+                                break;
+                            }catch(IllegalArgumentException e){
+                                System.out.println(e.getMessage());
+                                }
+                            }
+                        while(true){
+                            try{
+                                System.out.print("Ingrese su numero de celular: ");
+                                p.setCelular(scan.nextLine());
+                                break;
+                            }
+                            catch(IllegalArgumentException e){
+                                System.out.println(e.getMessage());
+                            }
+                        }
+                        while(true){
+                            try{
+                                System.out.print("Ingrese su correo: ");
+                                p.setCorreo(scan.nextLine());
+                                break;
+                            }
+                            catch (IllegalArgumentException e){
+                              System.out.println(e.getMessage());
+                            }
+                        }
+                        
                         System.out.print("¿Tiene algun tipo de alergia? (1. Si, 2. No): ");
                         int rpta = scan.nextInt();
                         scan.nextLine();
