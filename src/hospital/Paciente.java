@@ -76,15 +76,13 @@ public class Paciente {
     }
 
     public void setTipodedoc(String tipodedoc) { //validacion tipo de doc
-        //equalsIgnoreCase sirve como un ToLowerCase y ToUpperCase al mismo tiempo, por eso se uso este
-        //se practico en casa
-         if (tipodedoc.equalsIgnoreCase("DNI") || tipodedoc.equalsIgnoreCase("CE")) {
 
+          if (validartipoDoc(tipodedoc)) 
+          {
             this.tipodedoc = tipodedoc.toUpperCase();
-
-        } else {
+          } else {
             throw new IllegalArgumentException("Solo DNI o CE");
-         }
+          }
     }
 
     public String getDocID() {
@@ -172,13 +170,6 @@ public class Paciente {
         return "Paciente{" + "apellidos=" + apellidos + ", nombre=" + nombre + ", fechaNaci=" + fechaNaci + ", tipodedoc=" + tipodedoc + ", docID=" + docID + ", celular=" + celular + ", correo=" + correo + ", alergia=" + alergia + ", tipoAler=" + tipoAler + ", detAlerg=" + detAlerg + ", tipoSangre=" + tipoSangre + '}';
     }
     
-    public boolean validarDocID(String docID) {
-        if (tipodedoc.equalsIgnoreCase("DNI")) {
-            return docID.length() == 8;
-      } else if (tipodedoc.equalsIgnoreCase("CE")) {
-            return docID.length() == 9;
-    }
-    return false;}
     
     public boolean validarApellidos(String apellidos) 
     {
@@ -192,6 +183,18 @@ public class Paciente {
     
     public boolean validartipoDoc(String tipodedoc) 
     {
+    //equalsIgnoreCase sirve como un ToLowerCase y ToUpperCase al mismo tiempo, por eso se uso este
+    //se practico en casa
     return (tipodedoc.equalsIgnoreCase("DNI") || tipodedoc.equalsIgnoreCase("CE"));
+    }
+    public boolean validarDocID(String docID) {
+        if (tipodedoc.equalsIgnoreCase("DNI")) 
+        {
+            return docID.length() == 8;
+        } else if (tipodedoc.equalsIgnoreCase("CE")) 
+        {
+            return docID.length() == 9;
+        }
+    return false;
     }
 }
