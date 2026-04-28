@@ -132,7 +132,7 @@ public class Paciente {
             System.out.println("Tiene alergia");
         }
         else {
-            System.out.println("No tiene alegia");
+            System.out.println("No tiene alergia");
         }
         this.alergia = alergia;
     }
@@ -142,12 +142,13 @@ public class Paciente {
     }
 
     public void setTipoAler(String tipoAler) { //control de ecepciones y errores
-        if (!tipoAler.equalsIgnoreCase("Medicamentos") || !tipoAler.equalsIgnoreCase("Alimentos")||
-            !tipoAler.equalsIgnoreCase("Ambos")){
-            throw new IllegalArgumentException("Ingrese una opcion valida");
+        if (tipoAler.equalsIgnoreCase("Medicamentos") || tipoAler.equalsIgnoreCase("Alimentos")||
+            tipoAler.equalsIgnoreCase("Ambos")){
+            this.tipoAler = tipoAler;
         }
         else{
-         this.tipoAler = tipoAler;
+         
+         throw new IllegalArgumentException("Ingrese una opcion valida");
         }
     } 
 
@@ -168,10 +169,20 @@ public class Paciente {
     }
 
     @Override
-    public String toString() {
-        return "Paciente{" + "apellidos=" + apellidos + ", nombre=" + nombre + ", fechaNaci=" + fechaNaci + ", tipodedoc=" + tipodedoc + ", docID=" + docID + ", celular=" + celular + ", correo=" + correo + ", alergia=" + alergia + ", tipoAler=" + tipoAler + ", detAlerg=" + detAlerg + ", tipoSangre=" + tipoSangre + '}';
+    public String toString() { //organizacion con \n es como c# xd
+        return "Paciente\n" +
+           "Nombre completo   : " + nombre + " " + apellidos + "\n" +
+           "Fecha nacimiento  : " + fechaNaci + "\n" +
+           "Tipo documento    : " + tipodedoc + "\n" +
+           "N° documento      : " + docID + "\n" +
+           "Celular           : " + celular + "\n" +
+           "Correo            : " + correo + "\n" +
+          //aqui no sabia como pasar de true a string asi que busque y vi en videos que era con ? y :
+           "Alergia           : " + (alergia ? "Sí" : "No") + "\n" + 
+           "Tipo alergia      : " + tipoAler + "\n" +
+           "Detalle alergia   : " + detAlerg + "\n" +
+           "Tipo de sangre    : " + tipoSangre + "\n";
     }
-    
     
     public boolean validarApellidos(String apellidos) 
     {
