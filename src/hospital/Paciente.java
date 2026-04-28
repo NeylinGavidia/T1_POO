@@ -85,6 +85,7 @@ public class Paciente {
     }
 
     public void setDocID(String docID) {
+        
         this.docID = docID;
     }
 
@@ -93,7 +94,12 @@ public class Paciente {
     }
 
     public void setCelular(String celular) {
-        this.celular = celular;
+         if (celular.length() ==9) {
+            this.celular = celular;
+        } else {
+             System.out.println("Número incorrecto");
+            this.celular = "Error: Ingrese cantidad dígitos correctos";
+        }
     }
 
     public String getCorreo() {
@@ -101,9 +107,12 @@ public class Paciente {
     }
 
     public void setCorreo(String correo) {
-        this.correo = correo;
+        //aqui se usa el ! delante paa indicar lo contrario de la condicion
+        //contains sugerido por netbeans e invesitgado en inernet
+        if (!correo.contains("@") || !correo.contains(".com")){
+            throw new IllegalArgumentException("No se ha ingresado un correo");
+        }
     }
-
     public boolean isAlergia() {
         return alergia;
     }
